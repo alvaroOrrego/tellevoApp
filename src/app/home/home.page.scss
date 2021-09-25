@@ -25,3 +25,43 @@
 #container a {
   text-decoration: none;
 }
+
+ion-title{
+
+  color: black;
+  text-shadow:-1px 0 #c4bc73, 0 1px #c4bc73,
+  1px 0 #c4bc73, 0 -1px #c4bc73
+}
+
+.carta{
+  border-radius: 5%;
+}
+
+#imgTaxi{
+  border-radius: 10%;
+}
+
+#subtitle{
+  text-align: center;
+}
+
+#cardtitle{
+  text-align: center;
+}
+
+#cardcontent{
+  text-align: center;
+}
+
+ion-content{
+  --ion-background-color:rgb(252, 221, 84);
+}
+
+#titleSection{
+  color: black;
+  text-align: center;
+}
+
+#section{
+  text-align: center;
+}

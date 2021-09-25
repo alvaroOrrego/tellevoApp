@@ -1,20 +1,39 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Blank
+      <b>Te Llevo</b>
     </ion-title>
+  <ion-buttons slot="start">
+    <ion-menu-button menu="first" color="warning"></ion-menu-button>
+  </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <ion-card class="carta">
+    <ion-card-header>
+      <ion-card-subtitle id="subtitle">WWW.TELLEVO.CL</ion-card-subtitle>
+      <ion-card-title id="cardtitle"><b>¿Quienes somos?</b></ion-card-title>
+      <br>
+      <img src = 
+      "https://img.freepik.com/vector-gratis/vector-dibujos-animados-taxi-amarillo_7393-27.jpg?size=626&ext=jpg" id="imgTaxi">
+    </ion-card-header>
+  
+    <ion-card-content id="cardcontent">
+      Somos una organización que ofrece un grato servicio de transporte público y particular.
+      <br>
+      <b>¡Bienvenid@ a Te Llevo!</b>
+    </ion-card-content>
+  </ion-card>
+
+  <div id="section">
+  <section>
+    <b><header id="titleSection">Iniciar Sesión como:</header></b>
+    <ion-button color="light">PASAJERO</ion-button>
+    <ion-button color="light">CONDUCTOR</ion-button>
+  </section>
   </div>
+
 </ion-content>

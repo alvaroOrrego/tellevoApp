@@ -1,3 +1,69 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu side="start" menuId="first" contentId="main">
+    <ion-content>
+      <div class="menu-header-bg"></div>
+      <div class="header-content">
+        <img src="https://pbs.twimg.com/profile_images/553213596776148992/nO6K4BeW_400x400.png" id="imgMenu">
+        <ion-label>
+          <h2>Te Llevo</h2>
+          <p>® 2021 Friki Blinders</p>
+        </ion-label>
+      </div>
+
+      <br>
+      <br>
+
+      <ion-list class="menu-items" lines="none">
+
+        <ion-menu-toggle auto-hide="true">
+          <ion-item>
+            <ion-icon name="logo-usd"></ion-icon>Formas de Pago
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle auto-hide="true">
+          <ion-item>
+            <ion-icon name="map"></ion-icon>Mapa
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle auto-hide="true">
+          <ion-item>
+            <ion-icon name="chatbox-ellipses"></ion-icon>Contacto
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle auto-hide="true">
+          <ion-item>
+            <ion-icon name="cog"></ion-icon>Ajustes
+          </ion-item>
+        </ion-menu-toggle>
+
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
+
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      
+      <ion-tab-button tab="home">
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Inicio</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="profile">
+        <ion-icon name="person"></ion-icon>
+        <ion-label>Mi perfil</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="driver"  [routerLink] = "['/conductores']">
+        <ion-icon name="car"></ion-icon>
+        <ion-label>Conductores</ion-label>
+        <ion-badge color="warning">7</ion-badge>
+      </ion-tab-button>
+      
+    </ion-tab-bar>
+  </ion-tabs>
+
 </ion-app>
