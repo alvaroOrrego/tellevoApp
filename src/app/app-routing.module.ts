@@ -22,6 +22,14 @@ const routes: Routes = [
     path: 'loginconductor',
     loadChildren: () => import('./loginconductor/loginconductor.module').then( m => m.LoginconductorPageModule)
   },
+  {
+    path: 'olvipass',
+    loadChildren: () => import('./olvipass/olvipass.module').then( m => m.OlvipassPageModule)
+  },
+  {
+    path: 'olvipassc',
+    loadChildren: () => import('./olvipassc/olvipassc.module').then( m => m.OlvipasscPageModule)
+  },
 
 ];
 

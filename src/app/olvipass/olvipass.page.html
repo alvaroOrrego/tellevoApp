@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Recuperación </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="first" color="warning"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<ion-card class="carta">
+    <ion-card-header>
+      <ion-card-title id="cardtitle"><b>Recupera tu contraseña</b></ion-card-title>
+      <br>
+      <img src = "https://assets.stickpng.com/images/58661d207d90850fc3ce2a6f.png" id="imgTaxi">
+    </ion-card-header>
+</ion-card>
+
+
+  <div class="form">
+
+    <ion-item lines="none">
+      <ion-input placeholder="Ingrese correo electronico"></ion-input>
+    </ion-item>
+
+
+    <ion-button [routerLink]="['/home']" color="light" expand="block">Enviar</ion-button>
+
+  </div>
+
+  <ion-button [routerLink]="['/loginuser']" fill="clear" expand="block">La recordaste? Vamos, inicia sesion!</ion-button>
+  
+
+</ion-content>
+

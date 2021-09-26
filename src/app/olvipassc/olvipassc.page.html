@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Recuperación </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="first" color="warning"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<ion-card class="carta">
+    <ion-card-header>
+      <ion-card-title id="cardtitle"><b>Recupera tu contraseña</b></ion-card-title>
+      <br>
+      <img src = "https://autorato.webnode.cl/_files/200000024-9b9869c91a/700/3-Chofer.png?ph=5f02e90886" id="imgChofer">
+    </ion-card-header>
+</ion-card>
+
+
+  <div class="form">
+
+    <ion-item lines="none">
+      <ion-input placeholder="Ingrese correo electronico"></ion-input>
+    </ion-item>
+
+
+    <ion-button [routerLink]="['/home']" color="light" expand="block">Enviar</ion-button>
+
+  </div>
+
+  <ion-button [routerLink]="['/loginconductor']" fill="clear" expand="block">La recordaste? Vamos, inicia sesion!</ion-button>
+  
+
+</ion-content>
+

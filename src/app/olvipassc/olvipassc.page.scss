@@ -1,0 +1,45 @@
+.logo{
+    margin-top: 0%;
+    img{
+        height: 100px;
+        display:block;
+        margin: auto;
+    }
+    
+}
+
+.form{
+    margin-top: 7%;
+    ion-item{
+        border-radius: 5px;
+        border-color: rgb(204, 197, 197);
+        border-width: 2px;
+        border-style: solid;
+        margin-bottom: 10px;
+
+    }
+}
+
+ion-button{
+    border-radius: 5px;
+    text-transform: none;
+    border-color: rgb(204, 197, 197);
+    
+}
+
+ion-title{
+    text-align: left;
+    margin-right: auto;
+    color: black;
+    text-shadow:-1px 0 #c4bc73, 0 1px #c4bc73,
+    1px 0 #c4bc73, 0 -1px #c4bc73
+}
+
+ion-card-title{
+    
+    border-width: 2px;
+    text-align: center;
+
+    
+}
+
