@@ -1,0 +1,35 @@
+.logo{
+    margin-top: 0%;
+    img{
+        height: 200px;
+        display:block;
+        margin: auto;
+    }
+    
+}
+
+.form{
+    margin-top: -7%;
+    ion-item{
+        border-radius: 5px;
+        border-color: rgb(201, 201, 201);
+        border-width: 2px;
+        border-style: solid;
+        margin-bottom: 10px;
+
+    }
+}
+
+ion-button{
+    text-transform: none;
+    
+}
+
+ion-title{
+    text-align: center;
+    margin-right: 20%;
+    color: black;
+    text-shadow:-1px 0 #c4bc73, 0 1px #c4bc73,
+    1px 0 #c4bc73, 0 -1px #c4bc73
+}
+
