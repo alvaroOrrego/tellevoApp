@@ -14,7 +14,8 @@ const routes: Routes = [
   {
     path: 'conductores',
     loadChildren: () => import('./conductores/conductores.module').then( m => m.ConductoresPageModule)
-  },  {
+  },
+  {
     path: 'loginuser',
     loadChildren: () => import('./loginuser/loginuser.module').then( m => m.LoginuserPageModule)
   },
@@ -30,6 +31,15 @@ const routes: Routes = [
     path: 'olvipassc',
     loadChildren: () => import('./olvipassc/olvipassc.module').then( m => m.OlvipasscPageModule)
   },
+  {
+    path: 'viaje',
+    loadChildren: () => import('./viaje/viaje.module').then( m => m.ViajePageModule)
+  },
+  {
+    path: 'despedida-viaje',
+    loadChildren: () => import('./despedida-viaje/despedida-viaje.module').then( m => m.DespedidaViajePageModule)
+  },
+
 
 ];
 

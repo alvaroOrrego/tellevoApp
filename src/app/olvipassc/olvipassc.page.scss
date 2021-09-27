@@ -28,18 +28,23 @@ ion-button{
 }
 
 ion-title{
-    text-align: left;
-    margin-right: auto;
+    text-align: center;
+    margin-right: 20%;
     color: black;
     text-shadow:-1px 0 #c4bc73, 0 1px #c4bc73,
     1px 0 #c4bc73, 0 -1px #c4bc73
-}
+  }
 
 ion-card-title{
     
     border-width: 2px;
     text-align: center;
-
-    
 }
 
+#imgChofer{
+    border-radius: 20%;
+}
+
+ion-content{
+    background-color: black;
+}

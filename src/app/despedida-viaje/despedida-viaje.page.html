@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <b>Te Llevo</b>
+    </ion-title>
+  <ion-buttons slot="start">
+    <ion-menu-button menu="first" color="warning"></ion-menu-button>
+  </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card class="cartaDespedida">
+    <ion-card-header>
+      <ion-card-subtitle id="subtitleDespedida">WWW.TELLEVO.CL</ion-card-subtitle>
+      <ion-card-title id="cardtitleDespedida"><b>¡VIAJE LOGRADO!</b></ion-card-title>
+      <br>
+      <img src = 
+      "https://www.pyme.es/wp-content/uploads/Ilustracion-conocer-clientes.png" id="imgDespedida">
+    </ion-card-header>
+  
+    <ion-card-content id="cardcontentDespedida">
+      Valor a pagar: <i>[valorViaje]</i>
+      <br>
+      <br>
+      <b>¡GRACIAS POR SU PREFERENCIA!</b>
+    </ion-card-content>
+  </ion-card>
+
+  <div id="btnFinalizar">
+    <ion-button color="light" [routerLink] = "['/home']">FINALIZAR</ion-button>
+  </div>
+
+</ion-content>
