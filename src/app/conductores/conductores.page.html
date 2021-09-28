@@ -22,7 +22,7 @@
         <b>Capacidad: {{ch.capacidad}}</b>
         <ion-icon name="checkmark-circle" color="warning"></ion-icon>
         <br>
-        <ion-button color="warning" [routerLink] = "['/despedida-viaje']">VIAJAR</ion-button>
+        <ion-button (click)="alertaConductores()" color="warning" [routerLink] = "['/despedida-viaje']">VIAJAR</ion-button>
       </ion-label>
     </ion-item>
   </ion-list>

@@ -1,6 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { Animation, AnimationController } from '@ionic/angular';
-import { MenuController } from '@ionic/angular';
+import { Animation, AnimationController, MenuController, AlertController } from '@ionic/angular';
+
 
 
 @Component({
@@ -10,7 +10,7 @@ import { MenuController } from '@ionic/angular';
 })
 export class HomePage {
 
-  constructor(private animationCtrl: AnimationController, private menuCtrl: MenuController) {}
+  constructor(private animationCtrl: AnimationController, private menuCtrl: MenuController, public alerta: AlertController) {}
 
   toggleMenu(){
     this.menuCtrl.toggle();
@@ -29,7 +29,19 @@ export class HomePage {
   ]);
 
   animation.play();
-  
+
+  const animation2 = this.animationCtrl
+  .create()
+  .addElement(document.querySelector('#saludoHome'))
+  .duration(1500)
+  .iterations(1)
+  .fromTo('transform', 'translateX(100px)', 'translateX(0px)')
+  .fromTo('opacity', '0.2', '1');
+
+
+  animation2.play();
+
   }
+
 
 }
