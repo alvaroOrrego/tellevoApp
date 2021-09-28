@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Animation, AnimationController} from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+
+declare var google;
 
 @Component({
   selector: 'app-viaje',
@@ -7,12 +11,50 @@ import { Animation, AnimationController} from '@ionic/angular';
   styleUrls: ['./viaje.page.scss'],
 })
 export class ViajePage implements OnInit {
+  mapRef = null;
+  constructor(private animationCtrl: AnimationController, private geolocation: Geolocation, private loadingCtrl: LoadingController) { }
 
-  constructor(private animationCtrl: AnimationController) { }
-
+  /* Geolocalización inicio */
   ngOnInit() {
+    this.loadMap();
   }
 
+  async loadMap() {
+    const loading = await this.loadingCtrl.create();
+    loading.present();
+    const myLatLng = await this.getLocation();
+    const mapEle: HTMLElement = document.getElementById('map');
+    this.mapRef = new google.maps.Map(mapEle, {
+      center: myLatLng,
+      zoom: 8
+    });
+    google.maps.event
+    .addListenerOnce(this.mapRef, 'idle', () => {
+      loading.dismiss();
+      this.addMaker(myLatLng.lat, myLatLng.lng);
+    });
+  }
+
+  private addMaker(lat: number, lng: number) {
+    const marker = new google.maps.Marker({
+      position: { lat, lng },
+      map: this.mapRef,
+      title: 'Hola'
+    });
+  }
+
+  private async getLocation() {
+    const rta = await this.geolocation.getCurrentPosition();
+    return {
+      lat: rta.coords.latitude,
+      lng: rta.coords.longitude
+    };
+  }
+
+  /* Geolocalización final */
+
+
+  /* animación inicio */
   ngAfterViewInit(){
     const animation = this.animationCtrl
   .create()
@@ -28,5 +70,7 @@ export class ViajePage implements OnInit {
   animation.play();
 
   }
+
+  /* animación final */
 
 }
