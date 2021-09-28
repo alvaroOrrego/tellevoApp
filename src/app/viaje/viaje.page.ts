@@ -26,7 +26,7 @@ export class ViajePage implements OnInit {
     const mapEle: HTMLElement = document.getElementById('map');
     this.mapRef = new google.maps.Map(mapEle, {
       center: myLatLng,
-      zoom: 8
+      zoom: 15
     });
     google.maps.event
     .addListenerOnce(this.mapRef, 'idle', () => {
@@ -39,7 +39,7 @@ export class ViajePage implements OnInit {
     const marker = new google.maps.Marker({
       position: { lat, lng },
       map: this.mapRef,
-      title: 'Hola'
+      title: 'Aqui estas.'
     });
   }
 

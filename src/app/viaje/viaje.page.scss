@@ -36,7 +36,20 @@ ion-title{
   
 
   #map{
-    width: 259px;
+    width: 235px;
     height: 300px;
     border-radius: 40px;
+    /* margin-left: 23px; */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
   }
+
+
+iframe{
+  display: block;
+  border-radius: 40px;
+  /* margin-left: 23px; */
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

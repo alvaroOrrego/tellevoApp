@@ -3,9 +3,9 @@
     <ion-title>
       <b>Viaje</b>
     </ion-title>
-  <ion-buttons slot="start">
-    <ion-menu-button menu="first" color="warning"></ion-menu-button>
-  </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="first" color="warning"></ion-menu-button>
+    </ion-buttons>
 
   </ion-toolbar>
 </ion-header>
@@ -17,37 +17,21 @@
       <ion-card-subtitle id="subtitleViaje">WWW.TELLEVO.CL</ion-card-subtitle>
       <ion-card-title id="cardtitleViaje"><b>Organiza tu viaje</b></ion-card-title>
       <br>
-      <img src = 
-      "https://depor.com/resizer/eDztA8dmHXRmupD8vdVTBJ8zAEE=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/BMFJ3T63UNBVRLEXMML3K2LLWI.jpg" id="imgViaje">
+      <img
+        src="https://depor.com/resizer/eDztA8dmHXRmupD8vdVTBJ8zAEE=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/BMFJ3T63UNBVRLEXMML3K2LLWI.jpg"
+        id="imgViaje">
     </ion-card-header>
-  
+
     <ion-card-content id="cardcontentViaje">
       <b>¡BON VOYAGE!</b>
     </ion-card-content>
   </ion-card>
 
-
-  <ion-item>
-    <ion-label color="warning"><b>Ubicación:</b></ion-label>
-  </ion-item>
-
-  <div id="map"></div>
-
-  
-
-  <ion-item>
-    <ion-label position="floating" color="warning"><b>Destino:</b></ion-label>
-    <ion-input placeholder="Ingrese su destino"></ion-input>
-  </ion-item>
-
-
-  <br>
-
   <ion-item>
     <ion-label color="warning"><b>Ingrese fecha:</b></ion-label>
     <ion-datetime monthValues="1,2,3,4,5,6,7,8,9,10,11,12" yearValues="2021"
-     dayValues="01,02,03,04,05,06,08,09,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31"
-     displayFormat="DD/MMM/YYYY"></ion-datetime>
+      dayValues="01,02,03,04,05,06,08,09,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31"
+      displayFormat="DD/MMM/YYYY"></ion-datetime>
   </ion-item>
 
   <ion-item>
@@ -57,8 +41,42 @@
 
   <br>
 
+  <ion-item>
+    <ion-label color="warning"><b>Ubicación:</b></ion-label>
+  </ion-item>
+
+  <ion-card>
+    <ion-card-header>
+      <div id="map"></div>
+    </ion-card-header>
+  </ion-card>
+  
+
+
+
+  <ion-item>
+    <ion-label position="floating" color="warning"><b>Destino:</b></ion-label>
+    <ion-input placeholder="Ingrese su destino"></ion-input>
+  </ion-item>
+
+
+  <ion-card>
+    <ion-card-header>
+      <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3326.4364770066322!2d-70.60033498370973!3d-33.51603570826966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d0677c7d2355%3A0xa7aef48469ddd461!2sDuoc%20UC%3A%20Sede%20Plaza%20Vespucio!5e0!3m2!1ses-419!2scl!4v1632852168517!5m2!1ses-419!2scl"
+    width="235px" height="300px" style="border:1;" allowfullscreen="" loading="lazy"></iframe>
+    </ion-card-header>
+  </ion-card>
+  
+
+
+
+  <br>
+
+  
+
   <div id="btnSiguiente">
-    <ion-button color="light" [routerLink] = "['/conductores']">SIGUIENTE</ion-button>
+    <ion-button color="light" [routerLink]="['/conductores']">SIGUIENTE</ion-button>
   </div>
 
 </ion-content>
