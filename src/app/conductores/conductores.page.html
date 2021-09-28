@@ -19,7 +19,9 @@
         {{ch.nombre}}
         {{ch.apellido}}
         <br>
-        <b>Capacidad: {{ch.capacidad}}</b>
+        <b>Destino: </b>{{ch.destino}}
+        <br>
+        <b>Capacidad: </b>{{ch.capacidad}}
         <ion-icon name="checkmark-circle" color="warning"></ion-icon>
         <br>
         <ion-button (click)="alertaConductores()" color="warning" [routerLink] = "['/despedida-viaje']">VIAJAR</ion-button>

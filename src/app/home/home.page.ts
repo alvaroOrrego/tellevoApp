@@ -30,17 +30,6 @@ export class HomePage {
 
   animation.play();
 
-  const animation2 = this.animationCtrl
-  .create()
-  .addElement(document.querySelector('#saludoHome'))
-  .duration(1500)
-  .iterations(1)
-  .fromTo('transform', 'translateX(100px)', 'translateX(0px)')
-  .fromTo('opacity', '0.2', '1');
-
-
-  animation2.play();
-
   }
 
 
