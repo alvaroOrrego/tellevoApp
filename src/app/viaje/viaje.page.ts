@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Animation, AnimationController} from '@ionic/angular';
-import { LoadingController } from '@ionic/angular';
+import { Animation, AnimationController, LoadingController, AlertController } from '@ionic/angular';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 declare var google;
@@ -12,7 +11,8 @@ declare var google;
 })
 export class ViajePage implements OnInit {
   mapRef = null;
-  constructor(private animationCtrl: AnimationController, private geolocation: Geolocation, private loadingCtrl: LoadingController) { }
+  constructor(private animationCtrl: AnimationController, private geolocation: Geolocation, 
+    private loadingCtrl: LoadingController, public alerta: AlertController) { }
 
   /* Geolocalización inicio */
   ngOnInit() {
@@ -70,6 +70,22 @@ export class ViajePage implements OnInit {
   animation.play();
 
   }
+
+  async alertaViaje(){
+    const alert = await this.alerta.create({
+      cssClass:'my-custom-class',
+      header:'¡Listo!',
+      message: '¡Viaje programado!',
+      buttons: [
+        {
+          text:'OK',
+
+            }
+        ]
+      });
+
+      await alert.present();
+    }
 
   /* animación final */
 
