@@ -13,7 +13,15 @@ const routes: Routes = [
   },
   {
     path: 'conductores',
-    loadChildren: () => import('./conductores/conductores.module').then( m => m.ConductoresPageModule)
+    children:[
+      {
+        path : '',
+        loadChildren: () => import('./conductores/conductores.module').then( m => m.ConductoresPageModule)
+      },{
+        path:':idConductor',
+        loadChildren: () => import('./conductores/viaje-despedida/viaje-despedida.module').then( m => m.ViajeDespedidaPageModule)
+      }
+    ]   
   },
   {
     path: 'loginuser',

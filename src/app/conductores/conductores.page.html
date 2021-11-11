@@ -9,24 +9,21 @@
 
 <ion-content>
 
-  <ion-list>
-    <ion-item *ngFor="let ch of chofer">
-      <ion-avatar slot = "start">
-        <ion-img [src] = "ch.imgUrl"></ion-img>
-      </ion-avatar>
-      <ion-label>
-        {{ch.id}}
-        {{ch.nombre}}
-        {{ch.apellido}}
-        <br>
-        <b>Destino: </b>{{ch.destino}}
-        <br>
-        <b>Capacidad: </b>{{ch.capacidad}}
-        <ion-icon name="checkmark-circle" color="warning"></ion-icon>
-        <br>
-        <ion-button (click)="alertaConductores()" color="warning" [routerLink] = "['/despedida-viaje']">VIAJAR</ion-button>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  <ion-item *ngFor="let conductor of cond" [routerLink]="['/conductores',conductor.id]" (click)="alertaConductores()">
 
+
+    <div><p><ion-avatar><img src={{conductor.imgUrl}}></ion-avatar></p></div>
+    
+    <ion-label>
+      {{conductor.id}} <i>)</i>
+      {{conductor.nombre}}
+      {{conductor.apellido}}
+      <br>
+      <b>Destino: </b>{{conductor.destino}}
+      <br>
+      <b>Capacidad: </b>{{conductor.capacidad}}
+      <ion-icon name="checkmark-circle" color="warning"></ion-icon>
+    </ion-label>
+
+  </ion-item>
 </ion-content>
