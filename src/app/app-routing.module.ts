@@ -46,7 +46,11 @@ const routes: Routes = [
   {
     path: 'despedida-viaje',
     loadChildren: () => import('./despedida-viaje/despedida-viaje.module').then( m => m.DespedidaViajePageModule)
+  },  {
+    path: 'registro',
+    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
   },
+
 
 
 ];

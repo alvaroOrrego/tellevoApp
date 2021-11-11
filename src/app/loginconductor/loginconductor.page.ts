@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Animation, AnimationController} from '@ionic/angular';
+import { Animation, AnimationController,AlertController} from '@ionic/angular';
+import { CrudService } from '../crud.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-loginconductor',
@@ -8,7 +10,10 @@ import { Animation, AnimationController} from '@ionic/angular';
 })
 export class LoginconductorPage implements OnInit {
 
-  constructor(private animationCtrl: AnimationController) { }
+  constructor(private animationCtrl: AnimationController, 
+    private crud:CrudService, 
+    public alerta: AlertController,
+    private router: Router) { }
 
   ngOnInit() {
   }
@@ -28,5 +33,43 @@ export class LoginconductorPage implements OnInit {
   animation.play();
 
   }
+
+  async alertaLoginConductor(){
+    const alert = await this.alerta.create({
+      cssClass:'my-custom-class',
+      header:'¡Genial!',
+      message: '¡Logueado exitosamente!',
+      buttons: [
+        {
+          text:'OK',
+
+            }
+        ]
+      });
+
+      await alert.present();
+    }
+
+    async conn(txtRut:HTMLInputElement, txtFono:HTMLInputElement){
+
+      const valor = await this.crud.buscar(txtRut.value);
+      if (valor != null){
+        if (valor[0].fono === txtFono.value){
+          console.log("logueado exitosamente")
+  
+          this.router.navigateByUrl("/home")
+  
+        }
+        else{
+          console.log("Incorrectoooooo")
+        }
+      }
+      else{
+        console.log("No existe ese usuario")
+      }
+  
+    }
+
+  
 
 }

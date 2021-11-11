@@ -16,14 +16,14 @@
   <div class="form">
 
     <ion-item lines="none">
-      <ion-input placeholder="Ingrese su nombre de usuario"></ion-input>
+      <ion-input placeholder="Ingrese su nombre de usuario" #txtRut></ion-input>
     </ion-item>
 
     <ion-item lines="none">
-      <ion-input placeholder="Ingrese su contraseña" type="password"></ion-input>
+      <ion-input placeholder="Ingrese su contraseña" type="password" #txtFono></ion-input>
     </ion-item>
 
-    <ion-button [routerLink]="['/viaje']" color="light" expand="block">Entrar</ion-button>
+    <ion-button (click) = "conn(txtRut, txtFono)" color="light" expand="block">Entrar</ion-button>
 
   </div>
 
