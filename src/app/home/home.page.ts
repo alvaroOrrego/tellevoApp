@@ -10,6 +10,7 @@ import { Animation, AnimationController, MenuController, AlertController } from 
 })
 export class HomePage {
 
+
   constructor(private animationCtrl: AnimationController, private menuCtrl: MenuController, public alerta: AlertController) {}
 
   toggleMenu(){
