@@ -26,4 +26,26 @@
     </ion-label>
 
   </ion-item>
+
+
+
+
+  <ion-list>
+    <h1><u><b>Conductores pasados</b></u></h1>
+    <ion-item *ngFor = "let item of users">
+      <ion-label>
+        <br>
+        {{item.id}} <b>)</b> {{item.name}}
+        <br>
+        <b>E-mail: </b>{{item.email}}
+        <br>
+        <b>Telefono: </b>{{item.phone}}
+        <br>
+        <b>Ciudad: </b>{{item.address.city}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+
+
 </ion-content>

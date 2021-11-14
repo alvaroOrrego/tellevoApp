@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { UsuarioService } from '../servicios/usuario.service';
 import {ConductoresService} from './conductores.service'
 
 @Component({
@@ -10,6 +11,7 @@ import {ConductoresService} from './conductores.service'
 
 export class ConductoresPage implements OnInit {
   private cond = []
+  users=[]
 
   /* private chofer = [
     {
@@ -72,7 +74,7 @@ export class ConductoresPage implements OnInit {
 
   ] */
 
-  constructor(public alerta: AlertController, private servicios : ConductoresService) { }
+  constructor(public alerta: AlertController, private servicios : ConductoresService, private us: UsuarioService) { }
 
   async alertaConductores(){
     const alert = await this.alerta.create({
@@ -94,7 +96,10 @@ export class ConductoresPage implements OnInit {
     this.cond = this.servicios.getConductores();
 
 
+    this.us.cargarDatos().subscribe(data=>{
+      this.users = data
 
+    })
 
   }
 

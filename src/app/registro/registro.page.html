@@ -9,52 +9,57 @@
 
 <ion-content>
 
-  <img src = 
-      "https://img.freepik.com/vector-gratis/registrese-ahora-icono-aislado-o-banner-estilo-moda-bocadillo-dialogo-amarillo-flecha-elementos-abstractos-elemento-diseno-interfaz-usuario-boton-registro-sitio-web-suscripcion-membresia-ilustracion-vectorial_87771-11526.jpg?size=626&ext=jpg" 
-      id="imgRegistro">
-  
-<ion-item>
+  <img
+    src="https://img.freepik.com/vector-gratis/registrese-ahora-icono-aislado-o-banner-estilo-moda-bocadillo-dialogo-amarillo-flecha-elementos-abstractos-elemento-diseno-interfaz-usuario-boton-registro-sitio-web-suscripcion-membresia-ilustracion-vectorial_87771-11526.jpg?size=626&ext=jpg"
+    id="imgRegistro">
+
+  <ion-item>
     <ion-label position="floating">Rut: </ion-label>
     <ion-input placeholder="Ej: 18.623.434-7" #txtRut></ion-input>
-</ion-item>      
+  </ion-item>
 
-<ion-item>
-  <ion-label position="floating">Nombres: </ion-label>
-  <ion-input placeholder="Ej: Cristofer Ignacio" #txtNombres></ion-input>
-</ion-item>
+  <ion-item>
+    <ion-label position="floating">Nombres: </ion-label>
+    <ion-input placeholder="Ej: Cristofer Ignacio" #txtNombres></ion-input>
+  </ion-item>
 
-<ion-item>
-  <ion-label position="floating">Apellidos: </ion-label>
-  <ion-input placeholder="Ej: Ortiz Pizarro" #txtApellidos></ion-input>
-</ion-item>
+  <ion-item>
+    <ion-label position="floating">Apellidos: </ion-label>
+    <ion-input placeholder="Ej: Ortiz Pizarro" #txtApellidos></ion-input>
+  </ion-item>
 
-<ion-item>
-  <ion-label position="floating">Ocupación: </ion-label>
-  <ion-input placeholder="Ej: Estudiante/Conductor" #txtOcupacion></ion-input>
-</ion-item>
+  <ion-item>
+    <ion-label position="floating">Ocupación: </ion-label>
+    <ion-input placeholder="Ej: Estudiante/Conductor" #txtOcupacion></ion-input>
+  </ion-item>
 
-<ion-item>
-  <ion-label position="floating">Email: </ion-label>
-  <ion-input placeholder="Ej: olaocomoestay@gmail.com" #txtEmail></ion-input>
-</ion-item>
+  <ion-item>
+    <ion-label position="floating">Email: </ion-label>
+    <ion-input placeholder="Ej: olaocomoestay@gmail.com" #txtEmail></ion-input>
+  </ion-item>
 
-<ion-item>
-  <ion-label position="floating">Fono: </ion-label>
-  <ion-input placeholder="Ej: 982761345" #txtFono></ion-input>
-</ion-item>
+  <ion-item>
+    <ion-label position="floating">Fono: </ion-label>
+    <ion-input placeholder="Ej: 982761345" #txtFono></ion-input>
+  </ion-item>
 
-<br>
+  <br>
 
-<div id="btnRegistrar">
-<ion-button (click) = "agregar(txtRut, txtNombres, txtApellidos, txtOcupacion, txtEmail, txtFono)" (click)="alertaRegistro()" 
-              color="warning" [routerLink]="['/home']">REGISTRAR</ion-button>
-</div>
+  <div id="btnRegistrar">
+    <ion-button (click)="agregar(txtRut, txtNombres, txtApellidos, txtOcupacion, txtEmail, txtFono)"
+      (click)="alertaRegistro()" color="warning" [routerLink]="['/home']">REGISTRAR</ion-button>
+  </div>
 
-<div id="btnActualizar">
-<ion-button (click) = "actualizar(txtRut, txtNombres, txtApellidos, txtOcupacion, txtEmail, txtFono)" (click)="alertaActualizar()" 
-              color="warning" [routerLink]="['/registro']">ACTUALIZAR DATOS</ion-button>
-</div>
+  <div id="btnActualizar">
+    <ion-button (click)="actualizar(txtRut, txtNombres, txtApellidos, txtOcupacion, txtEmail, txtFono)"
+      (click)="alertaActualizar()" color="warning" [routerLink]="['/registro']">ACTUALIZAR DATOS</ion-button>
+  </div>
 
-<br>
+  <div id="btnActualizar">
+    <ion-button (click)="eliminar(txtRut)"
+      (click)="alertaEliminar()" color="warning" [routerLink]="['/registro']">ELIMINAR USUARIO</ion-button>
+  </div>
+
+  <br>
 
 </ion-content>

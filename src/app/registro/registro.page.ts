@@ -118,6 +118,18 @@ export class RegistroPage implements OnInit {
         txtFono.value = "";
   }
 
+
+  async eliminar(txtRut:HTMLInputElement)
+  {
+    
+  
+    await this.crud.eliminar(txtRut.value);
+    
+  }
+
+
+
+
   async alertaRegistro(){
     const alert = await this.alerta.create({
       cssClass:'my-custom-class',
@@ -132,7 +144,7 @@ export class RegistroPage implements OnInit {
       });
 
       await alert.present();
-    }
+  }
 
 
   async alertaActualizar(){
@@ -149,7 +161,24 @@ export class RegistroPage implements OnInit {
       });
 
       await alert.present();
-    }
+  }
+
+
+  async alertaEliminar(){
+    const alert = await this.alerta.create({
+      cssClass:'my-custom-class',
+      header:'¡Usuario Eliminado!',
+      message: '¡Usuario eliminado correctamente!',
+      buttons: [
+        {
+          text:'OK',
+
+            }
+        ]
+      });
+
+      await alert.present();
+  }
 
   ngOnInit() {
   }
