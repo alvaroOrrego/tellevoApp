@@ -57,7 +57,36 @@
 
   <div id="btnActualizar">
     <ion-button (click)="eliminar(txtRut)"
-      (click)="alertaEliminar()" color="warning" [routerLink]="['/registro']">ELIMINAR USUARIO</ion-button>
+      (click)="alertaEliminar()" color="warning">ELIMINAR USUARIO</ion-button>
+  </div>
+
+  <div id="btnActualizar">
+    <ion-button (click)="listar()"
+       color="warning">LISTAR USUARIOS</ion-button>
+  </div>
+
+  <br>
+
+  <div *ngIf= "lista.length>0">
+    <h2>Usuarios registrados durante este mes</h2>
+    <ion-list>
+      <div *ngFor="let item of lista">
+        <ion-item>
+          <ion-label>Nombre: {{item[0].nombres}} {{item[0].apellidos}}</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Email: {{item[0].email}}</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Ocupación: {{item[0].ocupacion}}</ion-label>
+        </ion-item>
+        ------------------------------------------------
+      </div>
+
+    </ion-list>
+
   </div>
 
   <br>

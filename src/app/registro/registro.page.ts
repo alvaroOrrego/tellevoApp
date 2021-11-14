@@ -16,12 +16,15 @@ export class RegistroPage implements OnInit {
   ocupacion: any;
   email: any;
   fono = "";
+
+
+  lista = [];
  
   
   
   
 
-  constructor(private crud: CrudService, public alerta: AlertController) { }
+  constructor(private crud: CrudService, public alerta: AlertController, private storage: Storage) { }
 
   async agregar(txtRut:HTMLInputElement, txtNombres:HTMLInputElement, 
     txtApellidos:HTMLInputElement, txtOcupacion:HTMLInputElement, 
@@ -126,6 +129,22 @@ export class RegistroPage implements OnInit {
     await this.crud.eliminar(txtRut.value);
     
   }
+
+
+  async listar()
+  {
+    let largo = await this.storage.length();
+     
+     if (largo == 0)
+     {
+      console.log("No hay elementos ")
+     }else
+     {
+      this.lista =  this.crud.listar();
+     }
+  }
+
+
 
 
 
