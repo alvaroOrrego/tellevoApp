@@ -54,7 +54,7 @@ export class LoginconductorPage implements OnInit {
     const alert2 = await this.alerta.create({
       cssClass: 'my-custom-class',
       header: '¡Ups!',
-      message: '¡No existe ese usuario!',
+      message: '¡Usuario inexistente!',
       buttons: [
         {
           text: 'OK',
@@ -86,9 +86,8 @@ export class LoginconductorPage implements OnInit {
 
   }
 
- 
   async conn(txtRut: HTMLInputElement, txtFono: HTMLInputElement) {
-    var id = txtRut.value;
+    const id = txtRut.value;
     const valor = await this.crud.buscar(txtRut.value);
     if (valor !== null) {
       if (valor[0].fono === txtFono.value) {

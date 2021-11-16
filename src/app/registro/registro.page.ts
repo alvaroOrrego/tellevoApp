@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../crud.service';
 import { AlertController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
+import { Router, RouterLink } from '@angular/router';
+
 
 
 @Component({
@@ -19,20 +21,32 @@ export class RegistroPage implements OnInit {
 
 
   lista = [];
- 
-  
-  
-  
 
-  constructor(private crud: CrudService, public alerta: AlertController, private storage: Storage) { }
 
-  async agregar(txtRut:HTMLInputElement, txtNombres:HTMLInputElement, 
-    txtApellidos:HTMLInputElement, txtOcupacion:HTMLInputElement, 
+
+  constructor(private crud: CrudService, public alerta: AlertController, private storage: Storage, private router: Router) { }
+
+  async agregar(txtRut:HTMLInputElement, txtNombres:HTMLInputElement,
+    txtApellidos:HTMLInputElement, txtOcupacion:HTMLInputElement,
     txtEmail:HTMLInputElement, txtFono:HTMLInputElement) {
+
+      if(txtRut.value.trim().length === 0 || txtNombres.value.trim().length === 0 || txtApellidos.value.trim().length === 0
+      || txtOcupacion.value.trim().length === 0 || txtEmail.value.trim().length === 0 || txtFono.value.trim().length === 0){
+
+        console.log("entro");
+        this.alertaRegistroNA();
+        this.router.navigateByUrl('/registro');
+
+      }else{
+        console.log("ola");
+        this.alertaRegistro();
+
 
       const valor = await this.crud.buscar(txtRut.value);
       console.log(valor)
       if (valor == null){
+
+
 
         const datos =[{"rut": txtRut.value,
                     "nombres": txtNombres.value,
@@ -55,15 +69,26 @@ export class RegistroPage implements OnInit {
       else{
         console.log("Ya existe este usuario")
       }
-
+    }
   }
-  
-  
+
+
   async actualizar(txtRut:HTMLInputElement, txtNombres:HTMLInputElement, 
     txtApellidos:HTMLInputElement, txtOcupacion:HTMLInputElement, 
     txtEmail:HTMLInputElement, txtFono:HTMLInputElement)
   {
+    if(txtRut.value.trim().length === 0 || txtNombres.value.trim().length === 0 || txtApellidos.value.trim().length === 0
+    || txtOcupacion.value.trim().length === 0 || txtEmail.value.trim().length === 0 || txtFono.value.trim().length === 0){
+
+      console.log("entro");
+      this.alertaRegistroNA();
+      this.router.navigateByUrl('/registro');
+
+    }else{
+      this.alertaActualizar();
+
     const valor = await this.crud.buscar(txtRut.value);
+    if (valor != null){
     this.rut = valor[0].txtRut;
     this.nombres = valor[0].txtNombres;
     this.apellidos = valor[0].txtApellidos;
@@ -101,7 +126,7 @@ export class RegistroPage implements OnInit {
     {
       this.fono = txtFono.value; 
     }
-   
+
     const datos = [{
                     "rut": txtRut.value,
                     "nombres": txtNombres.value,
@@ -110,31 +135,44 @@ export class RegistroPage implements OnInit {
                     "email": txtEmail.value,
                     "fono": txtFono.value
 
-    
     }];
     await this.crud.agregarConKey(txtRut.value,datos);
-    txtRut.value = "";
+        txtRut.value = "";
         txtNombres.value = "";
         txtApellidos.value = "";
         txtOcupacion.value = "";
         txtEmail.value = "";
         txtFono.value = "";
-  }
+
+        }
+        else{ console.log("ta loco tio");
+
+        }
+      }
+    }
 
 
   async eliminar(txtRut:HTMLInputElement)
   {
-    
-  
+    if(txtRut.value.trim().length === 0){
+
+      console.log("entro");
+      this.alertaRegistroNA();
+      this.router.navigateByUrl('/registro');
+
+    }else{
+      this.alertaEliminar();
+    }
+
     await this.crud.eliminar(txtRut.value);
-    
+
   }
 
 
   async listar()
   {
     let largo = await this.storage.length();
-     
+
      if (largo == 0)
      {
       console.log("No hay elementos ")
@@ -198,6 +236,23 @@ export class RegistroPage implements OnInit {
 
       await alert.present();
   }
+
+  async alertaRegistroNA(){
+    const alert = await this.alerta.create({
+      cssClass:'my-custom-class',
+      header:'¡Ups!',
+      message: '¡Error, reingrese los datos en los campos!',
+      buttons: [
+        {
+          text:'OK',
+
+            }
+        ]
+      });
+
+      await alert.present();
+  }
+
 
   ngOnInit() {
   }

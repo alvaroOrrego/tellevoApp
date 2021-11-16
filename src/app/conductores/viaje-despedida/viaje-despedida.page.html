@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      <ion-title>Despedida</ion-title>
+      <ion-title></ion-title>
     </ion-title>
   <ion-buttons slot="start">
     <ion-menu-button menu="first" color="warning"></ion-menu-button>
@@ -22,10 +22,12 @@
     </ion-card-header>
   
     <ion-card-content id="cardcontentDespedida">
-      <b>Valor a pagar: </b><i>[valorViaje]</i>
-      <br>
-      <b>Conductor: </b><i>{{conduct.nombre}}</i><div></div> <i>{{ conduct.apellido}}
+      <b>Conductor: </b><i>{{conduct.nombre}}</i> <i>{{ conduct.apellido}}
       </i>
+      <br>
+      <b>Destino: </b><i>{{conduct.destino}}</i>
+      <br>
+      <b>Valor: </b><i>{{conduct.valor}}</i>
       <br>
       <br>
       <b>¡GRACIAS POR SU PREFERENCIA!</b>

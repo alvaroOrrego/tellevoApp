@@ -21,11 +21,19 @@
   <div class="form">
 
     <ion-item lines="none">
-      <ion-input placeholder="Ingrese nombre de usuario"></ion-input>
+      <ion-input placeholder="Ingrese su rut" #txtRut></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input placeholder="Ingrese su nueva contraseña" #txtFono></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input placeholder="Reingrese su nueva contraseña" #txtFono></ion-input>
     </ion-item>
 
 
-    <ion-button [routerLink]="['/home']" color="light" expand="block">Enviar</ion-button>
+    <ion-button (click) = "actualizarPass(txtRut, txtFono)" color="light" expand="block">Enviar</ion-button>
 
   </div>
 
