@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./loginconductor.page.scss'],
 })
 export class LoginconductorPage implements OnInit {
+  nombres: any;
 
   constructor(private animationCtrl: AnimationController,
     private crud: CrudService,
@@ -86,15 +87,20 @@ export class LoginconductorPage implements OnInit {
 
   }
 
-  async conn(txtRut: HTMLInputElement, txtFono: HTMLInputElement) {
+  async conn(txtRut: HTMLInputElement, txtFono: HTMLInputElement, txtNombres: HTMLInputElement) {
     const id = txtRut.value;
+    
+    
     const valor = await this.crud.buscar(txtRut.value);
+    this.nombres = valor[0].nombres;
+
     if (valor !== null) {
       if (valor[0].fono === txtFono.value) {
         this.alertaLoginConductor();
+        
 
         /* this.router.navigateByUrl("/viaje") */
-        this.router.navigate([ '/viaje', id ])
+        this.router.navigate([ '/viaje', id, this.nombres ])
       }
       else {
         this.alertaLoginIncorrecto();

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Animation, AnimationController, LoadingController, AlertController } from '@ionic/angular';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { ActivatedRoute } from '@angular/router';
+import { CrudService } from '../crud.service';
+import { TextAttribute } from '@angular/compiler/src/render3/r3_ast';
 
 declare var google;
 
@@ -10,13 +13,19 @@ declare var google;
   styleUrls: ['./viaje.page.scss'],
 })
 export class ViajePage implements OnInit {
+  id;
+  nombres;
   mapRef = null;
   constructor(private animationCtrl: AnimationController, private geolocation: Geolocation, 
-    private loadingCtrl: LoadingController, public alerta: AlertController) { }
+    private loadingCtrl: LoadingController, public alerta: AlertController, public activateRoute: ActivatedRoute, private crudService: CrudService) { }
 
   /* Geolocalización inicio */
   ngOnInit() {
     this.loadMap();
+
+    var nombres = null;
+    var id = null;
+    this.id= this.activateRoute.snapshot.paramMap.get('nombres')
   }
 
   async loadMap() {

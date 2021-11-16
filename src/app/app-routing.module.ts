@@ -40,7 +40,7 @@ const routes: Routes = [
     loadChildren: () => import('./olvipassc/olvipassc.module').then( m => m.OlvipasscPageModule)
   },
   {
-    path: 'viaje/:id',
+    path: 'viaje/:id/:nombres',
     loadChildren: () => import('./viaje/viaje.module').then( m => m.ViajePageModule)
   },
   {

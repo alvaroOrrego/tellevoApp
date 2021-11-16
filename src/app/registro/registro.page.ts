@@ -26,36 +26,37 @@ export class RegistroPage implements OnInit {
 
   constructor(private crud: CrudService, public alerta: AlertController, private storage: Storage, private router: Router) { }
 
-  async agregar(txtRut:HTMLInputElement, txtNombres:HTMLInputElement,
-    txtApellidos:HTMLInputElement, txtOcupacion:HTMLInputElement,
-    txtEmail:HTMLInputElement, txtFono:HTMLInputElement) {
+  async agregar(txtRut: HTMLInputElement, txtNombres: HTMLInputElement,
+    txtApellidos: HTMLInputElement, txtOcupacion: HTMLInputElement,
+    txtEmail: HTMLInputElement, txtFono: HTMLInputElement) {
 
-      if(txtRut.value.trim().length === 0 || txtNombres.value.trim().length === 0 || txtApellidos.value.trim().length === 0
-      || txtOcupacion.value.trim().length === 0 || txtEmail.value.trim().length === 0 || txtFono.value.trim().length === 0){
+    if (txtRut.value.trim().length === 0 || txtNombres.value.trim().length === 0 || txtApellidos.value.trim().length === 0
+      || txtOcupacion.value.trim().length === 0 || txtEmail.value.trim().length === 0 || txtFono.value.trim().length === 0) {
 
-        console.log("entro");
-        this.alertaRegistroNA();
-        this.router.navigateByUrl('/registro');
+      console.log("entro");
+      this.alertaRegistroNA();
+      this.router.navigateByUrl('/registro');
 
-      }else{
-        console.log("ola");
-        this.alertaRegistro();
+    } else {
+      console.log("ola");
+      this.alertaRegistro();
 
 
       const valor = await this.crud.buscar(txtRut.value);
       console.log(valor)
-      if (valor == null){
+      if (valor == null) {
 
 
 
-        const datos =[{"rut": txtRut.value,
-                    "nombres": txtNombres.value,
-                    "apellidos": txtApellidos.value,
-                    "ocupacion": txtOcupacion.value,
-                    "email": txtEmail.value,
-                    "fono": txtFono.value
+        const datos = [{
+          "rut": txtRut.value,
+          "nombres": txtNombres.value,
+          "apellidos": txtApellidos.value,
+          "ocupacion": txtOcupacion.value,
+          "email": txtEmail.value,
+          "fono": txtFono.value
 
-                    }];
+        }];
 
         await this.crud.agregarConKey(txtRut.value, datos);
         txtRut.value = "";
@@ -66,101 +67,89 @@ export class RegistroPage implements OnInit {
         txtFono.value = "";
 
       }
-      else{
+      else {
         console.log("Ya existe este usuario")
       }
     }
   }
 
 
-  async actualizar(txtRut:HTMLInputElement, txtNombres:HTMLInputElement, 
-    txtApellidos:HTMLInputElement, txtOcupacion:HTMLInputElement, 
-    txtEmail:HTMLInputElement, txtFono:HTMLInputElement)
-  {
-    if(txtRut.value.trim().length === 0 || txtNombres.value.trim().length === 0 || txtApellidos.value.trim().length === 0
-    || txtOcupacion.value.trim().length === 0 || txtEmail.value.trim().length === 0 || txtFono.value.trim().length === 0){
+  async actualizar(txtRut: HTMLInputElement, txtNombres: HTMLInputElement,
+    txtApellidos: HTMLInputElement, txtOcupacion: HTMLInputElement,
+    txtEmail: HTMLInputElement, txtFono: HTMLInputElement) {
+    console.log("entro");
 
-      console.log("entro");
-      this.alertaRegistroNA();
-      this.router.navigateByUrl('/registro');
-
-    }else{
-      this.alertaActualizar();
+    this.router.navigateByUrl('/registro');
+    this.alertaActualizar();
 
     const valor = await this.crud.buscar(txtRut.value);
-    if (valor != null){
-    this.rut = valor[0].txtRut;
-    this.nombres = valor[0].txtNombres;
-    this.apellidos = valor[0].txtApellidos;
-    this.ocupacion = valor[0].txtOcupacion;
-    this.email = valor[0].txtEmail;
-    this.fono = valor[0].txtFono;
+    if (valor != null) {
+      this.rut = valor[0].rut;
+      this.nombres = valor[0].nombres;
+      this.apellidos = valor[0].apellidos;
+      this.ocupacion = valor[0].ocupacion;
+      this.email = valor[0].email;
+      this.fono = valor[0].fono;
 
 
-    if (txtRut.value.trim().length != 0)
-    {
-      this.rut  = txtRut.value;
-    }
-
-    if (txtNombres.value.trim().length != 0)
-    {
-      this.nombres = txtNombres.value;
-    }
-
-    if (txtApellidos.value.trim().length != 0)
-    {
-      this.apellidos = txtApellidos.value; 
-    }
-
-    if (txtOcupacion.value.trim().length != 0)
-    {
-      this.ocupacion = txtOcupacion.value; 
-    }
-
-    if (txtEmail.value.trim().length != 0)
-    {
-      this.email = txtEmail.value; 
-    }
-
-    if (txtFono.value.trim().length != 0)
-    {
-      this.fono = txtFono.value; 
-    }
-
-    const datos = [{
-                    "rut": txtRut.value,
-                    "nombres": txtNombres.value,
-                    "apellidos": txtApellidos.value,
-                    "ocupacion": txtOcupacion.value,
-                    "email": txtEmail.value,
-                    "fono": txtFono.value
-
-    }];
-    await this.crud.agregarConKey(txtRut.value,datos);
-        txtRut.value = "";
-        txtNombres.value = "";
-        txtApellidos.value = "";
-        txtOcupacion.value = "";
-        txtEmail.value = "";
-        txtFono.value = "";
-
-        }
-        else{ console.log("ta loco tio");
-
-        }
+      if (txtRut.value.trim().length != 0) {
+        this.rut = txtRut.value;
       }
+
+      if (txtNombres.value.trim().length != 0) {
+        this.nombres = txtNombres.value;
+      }
+
+      if (txtApellidos.value.trim().length != 0) {
+        this.apellidos = txtApellidos.value;
+      }
+
+      if (txtOcupacion.value.trim().length != 0) {
+        this.ocupacion = txtOcupacion.value;
+      }
+
+      if (txtEmail.value.trim().length != 0) {
+        this.email = txtEmail.value;
+      }
+
+      if (txtFono.value.trim().length != 0) {
+        this.fono = txtFono.value;
+      }
+
+      const datos = [{
+        "rut": this.rut,
+        "nombres": this.nombres,
+        "apellidos": this.apellidos,
+        "ocupacion": this.ocupacion,
+        "email": this.email,
+        "fono": this.fono
+
+      }];
+      await this.crud.agregarConKey(txtRut.value, datos);
+      txtRut.value = "";
+      txtNombres.value = "";
+      txtApellidos.value = "";
+      txtOcupacion.value = "";
+      txtEmail.value = "";
+      txtFono.value = "";
+
+    } 
+    else {
+      console.log("ta loco tio");
+
     }
 
+  }
 
-  async eliminar(txtRut:HTMLInputElement)
-  {
-    if(txtRut.value.trim().length === 0){
+
+  async eliminar(txtRut: HTMLInputElement) {
+    if (txtRut.value.trim().length === 0) {
 
       console.log("entro");
       this.alertaRegistroNA();
       this.router.navigateByUrl('/registro');
 
-    }else{
+    } else {
       this.alertaEliminar();
     }
 
@@ -169,17 +158,14 @@ export class RegistroPage implements OnInit {
   }
 
 
-  async listar()
-  {
+  async listar() {
     let largo = await this.storage.length();
 
-     if (largo == 0)
-     {
+    if (largo == 0) {
       console.log("No hay elementos ")
-     }else
-     {
-      this.lista =  this.crud.listar();
-     }
+    } else {
+      this.lista = this.crud.listar();
+    }
   }
 
 
@@ -187,70 +173,70 @@ export class RegistroPage implements OnInit {
 
 
 
-  async alertaRegistro(){
+  async alertaRegistro() {
     const alert = await this.alerta.create({
-      cssClass:'my-custom-class',
-      header:'¡Genial!',
+      cssClass: 'my-custom-class',
+      header: '¡Genial!',
       message: '¡Registro Exitoso!',
       buttons: [
         {
-          text:'OK',
+          text: 'OK',
 
-            }
-        ]
-      });
+        }
+      ]
+    });
 
-      await alert.present();
+    await alert.present();
   }
 
 
-  async alertaActualizar(){
+  async alertaActualizar() {
     const alert = await this.alerta.create({
-      cssClass:'my-custom-class',
-      header:'¡Genial!',
+      cssClass: 'my-custom-class',
+      header: '¡Genial!',
       message: '¡Datos Actualizados Correctamente!',
       buttons: [
         {
-          text:'OK',
+          text: 'OK',
 
-            }
-        ]
-      });
+        }
+      ]
+    });
 
-      await alert.present();
+    await alert.present();
   }
 
 
-  async alertaEliminar(){
+  async alertaEliminar() {
     const alert = await this.alerta.create({
-      cssClass:'my-custom-class',
-      header:'¡Usuario Eliminado!',
+      cssClass: 'my-custom-class',
+      header: '¡Usuario Eliminado!',
       message: '¡Usuario eliminado correctamente!',
       buttons: [
         {
-          text:'OK',
+          text: 'OK',
 
-            }
-        ]
-      });
+        }
+      ]
+    });
 
-      await alert.present();
+    await alert.present();
   }
 
-  async alertaRegistroNA(){
+  async alertaRegistroNA() {
     const alert = await this.alerta.create({
-      cssClass:'my-custom-class',
-      header:'¡Ups!',
+      cssClass: 'my-custom-class',
+      header: '¡Ups!',
       message: '¡Error, reingrese los datos en los campos!',
       buttons: [
         {
-          text:'OK',
+          text: 'OK',
 
-            }
-        ]
-      });
+        }
+      ]
+    });
 
-      await alert.present();
+    await alert.present();
   }
 
 

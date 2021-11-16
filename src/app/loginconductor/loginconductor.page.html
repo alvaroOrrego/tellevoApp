@@ -23,7 +23,9 @@
       <ion-input placeholder="Ingrese su contraseña" type="password" #txtFono></ion-input>
     </ion-item>
 
-    <ion-button (click) = "conn(txtRut, txtFono)" color="light" expand="block">Entrar</ion-button>
+    <ion-input type="hidden" #txtNombres></ion-input>
+
+    <ion-button (click) = "conn(txtRut, txtFono, txNombres)" color="light" expand="block">Entrar</ion-button>
 
   </div>
 

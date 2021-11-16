@@ -45,7 +45,7 @@ export class OlvipasscPage implements OnInit {
     txtEmail: HTMLInputElement, txtFono: HTMLInputElement) {
 
     this.router.navigateByUrl('/loginconductor');
-    this,this.alertaCambioContra();
+    this.alertaCambioContra();
 
     const valor = await this.crud.buscar(txtRut.value);
     if (valor != null) {
