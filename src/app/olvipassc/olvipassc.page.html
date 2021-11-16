@@ -32,8 +32,16 @@
       <ion-input placeholder="Reingrese su nueva contraseña" #txtFono></ion-input>
     </ion-item>
 
+    <ion-input type="hidden" #txtNombres></ion-input>
 
-    <ion-button (click) = "actualizarPass(txtRut, txtFono)" color="light" expand="block">Enviar</ion-button>
+    <ion-input type="hidden" #txtApellidos></ion-input>
+
+    <ion-input type="hidden" #txtOcupacion></ion-input>
+
+    <ion-input type="hidden" #txtEmail></ion-input>
+
+
+    <ion-button (click) = "actualizarPass(txtRut, txtNombres, txtApellidos, txtOcupacion, txtEmail, txtFono)" color="light" expand="block">Enviar</ion-button>
 
   </div>
 
